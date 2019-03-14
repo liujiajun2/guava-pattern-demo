@@ -2,6 +2,7 @@ package xin.liujiajun.guava.reflection;
 
 import com.google.common.collect.Lists;
 import com.google.common.reflect.Invokable;
+import com.google.common.reflect.TypeParameter;
 import com.google.common.reflect.TypeToken;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -9,6 +10,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -21,7 +23,6 @@ import java.util.function.Function;
 public class TypeTokenDemo {
 
     public static void main(String[] args) throws NoSuchMethodException {
-
 
 //        ArrayList<String> string = Lists.newArrayList();
 //        ArrayList<Integer> inte = Lists.newArrayList();
@@ -66,9 +67,14 @@ public class TypeTokenDemo {
             //是否可以被子类覆盖
             from.isOverridable();
             //方法第一个参数是否被定义了注解@Nullable
-            from.getParameters().get(0).isAnnotationPresent(Nullable.class);
+            //from.getParameters().get(0).isAnnotationPresent(Nullable.class);
 
         }
+        TypeToken<Map<String, Integer>> mapTypeToken = mapToken(TypeToken.of(String.class), TypeToken.of(Integer.class));
+        System.out.println(mapTypeToken.getType());
+        System.out.println(mapTypeToken.getRawType());
+        HashMap<String, Integer> map = new HashMap<>(16);
+        System.out.println(map.getClass().getTypeName());
 //        Class<String> stringClass = String.class;
 //        Constructor<?>[] constructors = stringClass.getConstructors();
 //        for (Constructor c: constructors) {
@@ -82,5 +88,10 @@ public class TypeTokenDemo {
 //            System.out.print(")");
 //            System.out.println();
 //        }
+    }
+    static <String,Integer> TypeToken<Map<String,Integer>> mapToken(TypeToken<String> keyToken,TypeToken<Integer> valueToken){
+        return new TypeToken<Map<String, Integer>>() {}
+                .where(new TypeParameter<String>() {}, keyToken)
+                .where(new TypeParameter<Integer>() {}, valueToken);
     }
 }

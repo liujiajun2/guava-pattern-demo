@@ -27,13 +27,6 @@ public class DynamicProxiesDemo {
         Animal animal = Reflection.newProxy(Animal.class, new AnimalInvocationHandler(new Dog()));
         animal.run();
 
-        AbstractInvocationHandler abstractInvocationHandler = new AbstractInvocationHandler() {
-            @Override
-            protected Object handleInvocation(Object o, Method method, Object[] objects) throws Throwable {
-                return null;
-            }
-        };
-
 
     }
 }

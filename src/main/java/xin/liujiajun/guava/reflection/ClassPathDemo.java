@@ -18,9 +18,18 @@ public class ClassPathDemo {
         ImmutableSet<ClassPath.ClassInfo> classInfos = from.getTopLevelClasses("xin.liujiajun.guava.reflection");
         for (ClassPath.ClassInfo c: classInfos) {
             System.out.println(c.getName());
-            System.out.println(c.getPackageName());
-            System.out.println(c.getSimpleName());
-
+            //包名
+            c.getPackageName();
+            //简单类名
+            c.getSimpleName();
         }
+        //output
+        //xin.liujiajun.guava.reflection.Animal
+        //xin.liujiajun.guava.reflection.AnimalInvocationHandler
+        //xin.liujiajun.guava.reflection.ClassPathDemo
+        //xin.liujiajun.guava.reflection.Dog
+        //xin.liujiajun.guava.reflection.DynamicProxiesDemo
+        //xin.liujiajun.guava.reflection.InvokableDemo
+        //xin.liujiajun.guava.reflection.TypeTokenDemo
     }
 }
