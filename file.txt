@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="Styles/SyntaxHighlighter.css"></link>
+		<script language="javascript" src="Scripts/shCore.js"></script>
+		<script language="javascript" src="Scripts/"></script>
+		<script language="javascript" src="Scripts/shBrushXml.js"></script>
+	</head>
+	<body>
+			<script language="javascript">
+		<!--
+			dp.SyntaxHighlighter.HighlightAll('code', true,false);
+			document.body.removeChild(document.getElementById("code"));
+	  -->
+	</script>
+</body>
+</html>
