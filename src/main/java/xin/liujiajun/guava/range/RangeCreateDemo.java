@@ -1,12 +1,13 @@
 package xin.liujiajun.guava.range;
 
+import com.google.common.collect.BoundType;
 import com.google.common.collect.Range;
 
 /**
  * @author LiuJiaJun
  * @date 2019/3/14 22:27
  */
-public class RangeDemo {
+public class RangeCreateDemo {
 
     public static void main(String[] args) {
 
@@ -29,6 +30,14 @@ public class RangeDemo {
         Range<Integer> integerRange5 = Range.atMost(1);
         //(-∞..+∞)
         Range<Comparable<?>> all = Range.all();
+        // 有界区间 [1,2]
+        Range<Integer> range = Range.range(1, BoundType.CLOSED, 2, BoundType.CLOSED);
+        // 无上界区间 [1..+∞)
+        Range<Integer> integerRange6 = Range.downTo(1, BoundType.CLOSED);
+        // 无下界区间 (-∞..1]
+        Range<Integer> integerRange7 = Range.upTo(1, BoundType.CLOSED);
+
+
 
     }
 }
