@@ -1,4 +1,4 @@
-package xin.liujiajun.guava.util;
+package xin.liujiajun.guava.base;
 
 import com.google.common.base.Objects;
 
