@@ -24,29 +24,24 @@ public class TypeTokenDemo {
 
     public static void main(String[] args) throws NoSuchMethodException {
 
-//        ArrayList<String> string = Lists.newArrayList();
-//        ArrayList<Integer> inte = Lists.newArrayList();
-//
-//        System.out.println(string.getClass().isAssignableFrom(inte.getClass()));
-//
-//
-//        TypeToken<String> str = TypeToken.of(String.class);
-//        boolean array = str.isArray();
-//        boolean primitive = str.isPrimitive();
-//
-//        System.out.println(array);
-//
-//        System.out.println(primitive);
-//
-//        TypeToken<List<String>> typeToken = new TypeToken<List<String>>() {};
-//        System.out.println(typeToken.getType());
-//        System.out.println(typeToken.getRawType());
+        ArrayList<String> string = Lists.newArrayList();
+        ArrayList<Integer> integers = Lists.newArrayList();
+
+        //true   即使ArrayList<String> 不同于 ArrayList<Integer>
+        System.out.println(string.getClass().isAssignableFrom(integers.getClass()));
+
+        TypeToken<String> str = TypeToken.of(String.class);
+        TypeToken<Integer> in = TypeToken.of(Integer.class);
 
 
-        TypeToken<Function<Integer, String>> funcToken = new TypeToken<Function<Integer, String>>() {
-        };
-        TypeToken<?> typeToken1 = funcToken.resolveType(Function.class.getTypeParameters()[1]);
-        System.out.println(typeToken1);
+        TypeToken<List<String>> typeToken = new TypeToken<List<String>>() {};
+        //java.util.List<java.lang.String>
+        System.out.println(typeToken.getType());
+        //interface java.util.List
+        System.out.println(typeToken.getRawType());
+
+
+
 
 
         TypeToken<Map<String, Integer>> mapToken = new TypeToken<Map<String, Integer>>() {
@@ -54,44 +49,22 @@ public class TypeTokenDemo {
 
         TypeToken<?> entrySet = mapToken.resolveType(Map.class.getMethod("entrySet").getGenericReturnType());
         System.out.println(entrySet);
-        Class<String> stringClass = String.class;
-        Method[] methods = stringClass.getMethods();
-        for (Method m: methods) {
-            System.out.print(m.getName() + "  JDK judge ");
-            System.out.print(Modifier.isPublic(m.getModifiers()) + "Guava judge ");
-            System.out.println(Invokable.from(m).isPublic());
 
-            Invokable<?, Object> from = Invokable.from(m);
-            //包私有
-            from.isPackagePrivate();
-            //是否可以被子类覆盖
-            from.isOverridable();
-            //方法第一个参数是否被定义了注解@Nullable
-            //from.getParameters().get(0).isAnnotationPresent(Nullable.class);
 
-        }
         TypeToken<Map<String, Integer>> mapTypeToken = mapToken(TypeToken.of(String.class), TypeToken.of(Integer.class));
+        // java.util.Map<java.lang.String, java.lang.Integer>
         System.out.println(mapTypeToken.getType());
-        System.out.println(mapTypeToken.getRawType());
-        HashMap<String, Integer> map = new HashMap<>(16);
-        System.out.println(map.getClass().getTypeName());
-//        Class<String> stringClass = String.class;
-//        Constructor<?>[] constructors = stringClass.getConstructors();
-//        for (Constructor c: constructors) {
-//            String name = c.getName();
-//            int parameterCount = c.getParameterCount();
-//            Class[] parameterTypes = c.getParameterTypes();
-//            System.out.print(name + "(");
-//            for (Class cc: parameterTypes) {
-//                System.out.print(cc.getSimpleName() + ",");
-//            }
-//            System.out.print(")");
-//            System.out.println();
-//        }
+
+
+        TypeToken<Function<Integer, String>> funcToken = new TypeToken<Function<Integer, String>>() {};
+        TypeToken<?> typeToken1 = funcToken.resolveType(Function.class.getTypeParameters()[1]);
+        //java.lang.String
+        System.out.println(typeToken1);
     }
-    static <String,Integer> TypeToken<Map<String,Integer>> mapToken(TypeToken<String> keyToken,TypeToken<Integer> valueToken){
-        return new TypeToken<Map<String, Integer>>() {}
-                .where(new TypeParameter<String>() {}, keyToken)
-                .where(new TypeParameter<Integer>() {}, valueToken);
+
+    static <K,V> TypeToken<Map<K,V>> mapToken(TypeToken<K> keyToken,TypeToken<V> valueToken){
+        return new TypeToken<Map<K, V>>() {}
+                .where(new TypeParameter<K>() {}, keyToken)
+                .where(new TypeParameter<V>() {}, valueToken);
     }
 }
