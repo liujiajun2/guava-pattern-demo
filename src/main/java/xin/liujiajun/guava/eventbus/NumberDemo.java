@@ -8,7 +8,7 @@ public class NumberDemo {
 
     public static void main(String[] args) {
 
-        NumberObserable number = new NumberObserable();
+        NumberObservable number = new NumberObservable();
         number.addObserver(new NumberObserver());
         number.setMessage(1);
         number.setMessage(2);

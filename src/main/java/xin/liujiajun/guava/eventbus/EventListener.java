@@ -13,7 +13,7 @@ public class EventListener {
     @Subscribe
     public void listen(EventDemo eventDemo){
         lastMessage = eventDemo.getMessage();
-        System.out.println("Message " + lastMessage);
+        System.out.println("event Message " + lastMessage);
     }
 
 

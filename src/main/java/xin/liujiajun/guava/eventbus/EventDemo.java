@@ -10,7 +10,6 @@ public class EventDemo {
 
     public EventDemo(int message){
         this.message = message;
-        System.out.println("event message " + message);
     }
     public int getMessage(){
         return this.message;

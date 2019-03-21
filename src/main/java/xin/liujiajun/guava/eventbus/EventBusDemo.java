@@ -17,7 +17,6 @@ public class EventBusDemo {
         eventBus.post(new EventDemo(300));
         eventBus.post(new EventDemo(400));
 
-
         System.out.println("LastMessage " + listener.getLastMessage());
     }
 }

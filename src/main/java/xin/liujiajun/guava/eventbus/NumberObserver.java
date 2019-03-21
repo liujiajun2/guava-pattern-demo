@@ -10,7 +10,7 @@ import java.util.Observer;
 public class NumberObserver implements Observer {
     @Override
     public void update(Observable o, Object arg) {
-        NumberObserable observer = (NumberObserable) o;
+        NumberObservable observer = (NumberObservable) o;
         System.out.println("message has change " + observer.getMessage());
     }
 }

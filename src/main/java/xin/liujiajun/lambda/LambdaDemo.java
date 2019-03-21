@@ -1,5 +1,7 @@
 package xin.liujiajun.lambda;
 
+import com.google.common.cache.Weigher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -21,6 +23,8 @@ public class LambdaDemo {
                 return o1.compareTo(o2);
             }
         };
+
+        Comparator<Person> compator = (Person p1, Person p2) -> p1.getAge().compareTo(p2.getAge());
 
         Comparator<Integer> integerComparator = ( o1, o2) -> o1.compareTo(o2);
 
