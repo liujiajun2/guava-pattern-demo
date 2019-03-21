@@ -55,7 +55,29 @@ public class OptionalTest {
         java.util.Optional<Object> empty = java.util.Optional.empty();
         System.out.println(empty.isPresent());
 
+    }
+    @Test
+    public void test01(){
 
+    }
+
+    @Test
+    public void test03(){
+
+    }
+
+    @Test
+    public void test04(){
+
+    }
+
+    @Test
+    public void test05(){
+
+    }
+
+    @Test
+    public void test06(){
 
     }
 

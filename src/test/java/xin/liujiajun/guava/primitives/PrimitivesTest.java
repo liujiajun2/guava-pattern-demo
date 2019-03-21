@@ -1,14 +1,13 @@
-package xin.liujiajun.guava.collection;
+package xin.liujiajun.guava.primitives;
 
 import org.junit.Test;
 
 /**
  * @author liujiajun
  * @description
- * @create 2019-03-20 08:22
+ * @create 2019-03-21 15:06
  **/
-public class ImmutableTest {
-
+public class PrimitivesTest {
     @Test
     public void test01(){
 

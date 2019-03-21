@@ -5,10 +5,9 @@ import org.junit.Test;
 /**
  * @author liujiajun
  * @description
- * @create 2019-03-20 08:22
+ * @create 2019-03-21 15:02
  **/
-public class ImmutableTest {
-
+public class CollectionUtilTest {
     @Test
     public void test01(){
 

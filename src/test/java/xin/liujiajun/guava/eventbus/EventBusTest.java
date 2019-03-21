@@ -1,14 +1,13 @@
-package xin.liujiajun.guava.collection;
+package xin.liujiajun.guava.eventbus;
 
 import org.junit.Test;
 
 /**
  * @author liujiajun
  * @description
- * @create 2019-03-20 08:22
+ * @create 2019-03-21 15:05
  **/
-public class ImmutableTest {
-
+public class EventBusTest {
     @Test
     public void test01(){
 

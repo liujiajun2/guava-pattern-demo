@@ -42,4 +42,30 @@ public class TypeTokenTest {
 
         System.out.println(entrySet);
     }
+
+    @Test
+    public void test01(){
+
+    }
+
+    @Test
+    public void test03(){
+
+    }
+
+    @Test
+    public void test04(){
+
+    }
+
+    @Test
+    public void test05(){
+
+    }
+
+    @Test
+    public void test06(){
+
+    }
+
 }
